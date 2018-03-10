@@ -12,7 +12,7 @@ setup.dashboards.enabled: {{ elastic_filebeat_kibana_setup_dashboards }}
 output.elasticsearch:
   hosts:
     {{ elastic_filebeat_elasticsearch_hosts | to_yaml | indent(4) }}
-  compression_level: 5
+  compression_level: {{ elastic_filebeat_compression_level }}
 
 xpack.monitoring:
   enabled: true
