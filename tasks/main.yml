@@ -1,0 +1,9 @@
+---
+- include: metricbeat.yml
+  when: elastic_metricbeat_modules
+
+- include: filebeat.yml
+  when: elastic_filebeat_modules
+
+- include: heartbeat.yml
+  when: elastic_heartbeat_monitors

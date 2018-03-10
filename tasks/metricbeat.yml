@@ -1,0 +1,26 @@
+---
+- name: ensure elastic metricbeat dir
+  file:
+    dest: '{{ item }}'
+    state: directory
+  with_items:
+    - '{{ elastic_metricbeat_dir }}'
+
+- name: ensure elastic metricbeat config
+  template:
+    src: metricbeat.yml.j2
+    dest: '{{ elastic_metricbeat_dir }}/metricbeat.yml'
+
+- name: run elastic metricbeat container
+  docker_container:
+    state: started
+    restart: yes
+    recreate: yes
+    name: '{{ elastic_metricbeat_container_name }}'
+    image: '{{ elastic_metricbeat_image }}'
+    restart_policy: always
+    user: root
+    network_mode: host
+    links: '{{ elastic_metricbeat_links }}'
+    volumes: '{{ elastic_metricbeat_volumes }}'
+    command: -system.hostfs=/hostfs

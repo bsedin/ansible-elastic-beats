@@ -1,0 +1,24 @@
+---
+- name: ensure elastic filebeat dir
+  file:
+    dest: '{{ item }}'
+    state: directory
+  with_items:
+    - '{{ elastic_filebeat_dir }}'
+
+- name: ensure elastic filebeat config
+  template:
+    src: filebeat.yml.j2
+    dest: '{{ elastic_filebeat_dir }}/filebeat.yml'
+
+- name: run elastic filebeat container
+  docker_container:
+    state: started
+    restart: yes
+    recreate: yes
+    name: '{{ elastic_filebeat_container_name }}'
+    image: '{{ elastic_filebeat_image }}'
+    restart_policy: always
+    user: root
+    links: '{{ elastic_filebeat_links }}'
+    volumes: '{{ elastic_filebeat_volumes }}'

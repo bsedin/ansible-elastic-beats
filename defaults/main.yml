@@ -1,0 +1,69 @@
+---
+elastic_beats_version: 6.2.2
+elastic_beats_elasticsearch_hosts:
+  - localhost:9200
+elastic_beats_kibana_setup_dashboards: true
+elastic_beats_kibana_enabled: true
+elastic_beats_kibana_protocol: http
+elastic_beats_kibana_host: localhost
+elastic_beats_kibana_port: 5601
+elastic_beats_kibana_basic_auth_username:
+elastic_beats_kibana_basic_auth_password:
+
+elastic_filebeat_version: '{{ elastic_beats_version }}'
+elastic_filebeat_dir: /opt/docker/services/elastic-filebeat
+elastic_filebeat_image: docker.elastic.co/beats/filebeat:{{ elastic_filebeat_version }}
+elastic_filebeat_container_name: elastic-filebeat
+elastic_filebeat_links: []
+elastic_filebeat_volumes:
+  - '{{ elastic_filebeat_dir }}/filebeat.yml:/usr/share/filebeat/filebeat.yml'
+  - /:/hostfs:ro
+  - /var/log:/hostfs/var/log:ro
+elastic_filebeat_elasticsearch_hosts: '{{ elastic_beats_elasticsearch_hosts }}'
+elastic_filebeat_kibana_setup_dashboards: '{{ elastic_beats_kibana_setup_dashboards }}'
+elastic_filebeat_kibana_enabled: '{{ elastic_beats_kibana_enabled }}'
+elastic_filebeat_kibana_protocol: '{{ elastic_beats_kibana_protocol }}'
+elastic_filebeat_kibana_host: '{{ elastic_beats_kibana_host }}'
+elastic_filebeat_kibana_port: '{{ elastic_beats_kibana_port }}'
+elastic_filebeat_kibana_basic_auth_username: '{{ elastic_beats_kibana_basic_auth_username }}'
+elastic_filebeat_kibana_basic_auth_password: '{{ elastic_beats_kibana_basic_auth_password }}'
+elastic_filebeat_beat_name: '{{ hostname }}'
+elastic_filebeat_modules:
+
+elastic_heartbeat_version: '{{ elastic_beats_version }}'
+elastic_heartbeat_dir: /opt/docker/services/elastic-heartbeat
+elastic_heartbeat_image: docker.elastic.co/beats/heartbeat:{{ elastic_heartbeat_version }}
+elastic_heartbeat_container_name: elastic-heartbeat
+elastic_heartbeat_links: []
+elastic_heartbeat_elasticsearch_hosts: '{{ elastic_beats_elasticsearch_hosts }}'
+elastic_heartbeat_kibana_setup_dashboards: '{{ elastic_beats_kibana_setup_dashboards }}'
+elastic_heartbeat_kibana_enabled: '{{ elastic_beats_kibana_enabled }}'
+elastic_heartbeat_kibana_protocol: '{{ elastic_beats_kibana_protocol }}'
+elastic_heartbeat_kibana_host: '{{ elastic_beats_kibana_host }}'
+elastic_heartbeat_kibana_port: '{{ elastic_beats_kibana_port }}'
+elastic_heartbeat_kibana_basic_auth_username: '{{ elastic_beats_kibana_basic_auth_username }}'
+elastic_heartbeat_kibana_basic_auth_password: '{{ elastic_beats_kibana_basic_auth_password }}'
+elastic_heartbeat_beat_name: '{{ hostname }}'
+elastic_heartbeat_monitors:
+
+elastic_metricbeat_version: '{{ elastic_beats_version }}'
+elastic_metricbeat_dir: /opt/docker/services/elastic-metricbeat
+elastic_metricbeat_image: docker.elastic.co/beats/metricbeat:{{ elastic_metricbeat_version }}
+elastic_metricbeat_container_name: elastic-metricbeat
+elastic_metricbeat_links: []
+elastic_metricbeat_volumes:
+  - '{{ elastic_metricbeat_dir }}/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml'
+  - /:/hostfs:ro
+  - /proc:/hostfs/proc:ro
+  - /sys:/hostfs/sys:ro
+  - /var/run:/hostfs/var/run:ro
+elastic_metricbeat_elasticsearch_hosts: '{{ elastic_beats_elasticsearch_hosts }}'
+elastic_metricbeat_kibana_setup_dashboards: '{{ elastic_beats_kibana_setup_dashboards }}'
+elastic_metricbeat_kibana_enabled: '{{ elastic_beats_kibana_enabled }}'
+elastic_metricbeat_kibana_protocol: '{{ elastic_beats_kibana_protocol }}'
+elastic_metricbeat_kibana_host: '{{ elastic_beats_kibana_host }}'
+elastic_metricbeat_kibana_port: '{{ elastic_beats_kibana_port }}'
+elastic_metricbeat_kibana_basic_auth_username: '{{ elastic_beats_kibana_basic_auth_username }}'
+elastic_metricbeat_kibana_basic_auth_password: '{{ elastic_beats_kibana_basic_auth_password }}'
+elastic_metricbeat_beat_name: '{{ hostname }}'
+elastic_metricbeat_modules:

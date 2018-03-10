@@ -1,0 +1,25 @@
+---
+- name: ensure elastic heartbeat dir
+  file:
+    dest: '{{ item }}'
+    state: directory
+  with_items:
+    - '{{ elastic_heartbeat_dir }}'
+
+- name: ensure elastic heartbeat config
+  template:
+    src: heartbeat.yml.j2
+    dest: '{{ elastic_heartbeat_dir }}/heartbeat.yml'
+
+- name: run elastic heartbeat container
+  docker_container:
+    state: started
+    restart: yes
+    recreate: yes
+    name: '{{ elastic_heartbeat_container_name }}'
+    image: '{{ elastic_heartbeat_image }}'
+    restart_policy: always
+    user: root
+    links: '{{ elastic_heartbeat_links }}'
+    volumes:
+      - '{{ elastic_heartbeat_dir }}/heartbeat.yml:/usr/share/heartbeat/heartbeat.yml'
