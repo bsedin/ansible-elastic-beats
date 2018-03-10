@@ -12,10 +12,10 @@ setup.dashboards.enabled: {{ elastic_heartbeat_kibana_setup_dashboards }}
 output.elasticsearch:
   hosts:
     {{ elastic_heartbeat_elasticsearch_hosts | to_yaml | indent(4) }}
+  compression_level: 5
 
 xpack.monitoring:
   enabled: true
-  elasticsearch:
 
 heartbeat.monitors:
   {{ elastic_heartbeat_monitors | to_yaml | indent(2) }}
