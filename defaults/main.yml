@@ -28,7 +28,6 @@ elastic_filebeat_kibana_port: '{{ elastic_beats_kibana_port }}'
 elastic_filebeat_kibana_basic_auth_username: '{{ elastic_beats_kibana_basic_auth_username }}'
 elastic_filebeat_kibana_basic_auth_password: '{{ elastic_beats_kibana_basic_auth_password }}'
 elastic_filebeat_beat_name: '{{ hostname }}'
-elastic_filebeat_modules:
 elastic_filebeat_compression_level: 0
 
 elastic_heartbeat_version: '{{ elastic_beats_version }}'
@@ -45,7 +44,6 @@ elastic_heartbeat_kibana_port: '{{ elastic_beats_kibana_port }}'
 elastic_heartbeat_kibana_basic_auth_username: '{{ elastic_beats_kibana_basic_auth_username }}'
 elastic_heartbeat_kibana_basic_auth_password: '{{ elastic_beats_kibana_basic_auth_password }}'
 elastic_heartbeat_beat_name: '{{ hostname }}'
-elastic_heartbeat_monitors:
 elastic_heartbeat_compression_level: 0
 
 elastic_metricbeat_version: '{{ elastic_beats_version }}'
@@ -68,5 +66,4 @@ elastic_metricbeat_kibana_port: '{{ elastic_beats_kibana_port }}'
 elastic_metricbeat_kibana_basic_auth_username: '{{ elastic_beats_kibana_basic_auth_username }}'
 elastic_metricbeat_kibana_basic_auth_password: '{{ elastic_beats_kibana_basic_auth_password }}'
 elastic_metricbeat_beat_name: '{{ hostname }}'
-elastic_metricbeat_modules:
 elastic_metricbeat_compression_level: 0
