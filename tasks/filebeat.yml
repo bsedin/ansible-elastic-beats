@@ -21,4 +21,5 @@
     restart_policy: always
     user: root
     links: '{{ elastic_filebeat_links }}'
+    networks: '{{ elastic_filebeat_networks }}'
     volumes: '{{ elastic_filebeat_volumes }}'

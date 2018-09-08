@@ -22,5 +22,6 @@
     user: root
     network_mode: host
     links: '{{ elastic_metricbeat_links }}'
+    networks: '{{ elastic_metricbeat_networks }}'
     volumes: '{{ elastic_metricbeat_volumes }}'
     command: -system.hostfs=/hostfs
