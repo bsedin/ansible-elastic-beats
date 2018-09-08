@@ -17,7 +17,7 @@
     restart: yes
     recreate: yes
     name: '{{ elastic_filebeat_container_name }}'
-    image: '{{ elastic_filebeat_image }}:{{ elastic_filebeat_version }}'
+    image: '{{ elastic_filebeat_image }}'
     restart_policy: always
     user: root
     links: '{{ elastic_filebeat_links }}'

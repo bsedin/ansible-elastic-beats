@@ -53,8 +53,6 @@ elastic_metricbeat_version: '{{ elastic_beats_version }}'
 elastic_metricbeat_dir: /opt/docker/services/elastic-metricbeat
 elastic_metricbeat_image: docker.elastic.co/beats/metricbeat:{{ elastic_metricbeat_version }}
 elastic_metricbeat_container_name: elastic-metricbeat
-elastic_metricbeat_links: []
-elastic_metricbeat_networks: '{{ elastic_beats_networks }}'
 elastic_metricbeat_volumes:
   - '{{ elastic_metricbeat_dir }}/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml'
   - /:/hostfs:ro
