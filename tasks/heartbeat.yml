@@ -17,7 +17,7 @@
     restart: yes
     recreate: yes
     name: '{{ elastic_heartbeat_container_name }}'
-    image: '{{ elastic_heartbeat_image }}'
+    image: '{{ elastic_heartbeat_image }}:{{ elastic_heartbeat_version }}'
     restart_policy: always
     user: root
     links: '{{ elastic_heartbeat_links }}'

@@ -17,7 +17,7 @@
     restart: yes
     recreate: yes
     name: '{{ elastic_metricbeat_container_name }}'
-    image: '{{ elastic_metricbeat_image }}'
+    image: '{{ elastic_metricbeat_image }}:{{ elastic_metricbeat_version }}'
     restart_policy: always
     user: root
     network_mode: host
