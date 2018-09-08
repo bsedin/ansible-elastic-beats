@@ -1,5 +1,5 @@
 ---
-elastic_beats_version: 6.2.2
+elastic_beats_version: 6.4.0
 elastic_beats_elasticsearch_hosts:
   - localhost:9200
 elastic_beats_kibana_setup_dashboards: true
