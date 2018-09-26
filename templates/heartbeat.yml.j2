@@ -21,4 +21,4 @@ heartbeat.monitors:
   {{ elastic_heartbeat_monitors | to_yaml | indent(2) }}
 
 heartbeat.scheduler:
-  limit: 10
+  limit: {{ elastic_heartbeat_scheduler_limit }}
