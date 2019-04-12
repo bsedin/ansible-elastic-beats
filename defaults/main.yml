@@ -39,7 +39,6 @@ elastic_heartbeat_container_name: elastic-heartbeat
 elastic_heartbeat_links: []
 elastic_heartbeat_networks: '{{ elastic_beats_networks }}'
 elastic_heartbeat_elasticsearch_hosts: '{{ elastic_beats_elasticsearch_hosts }}'
-elastic_heartbeat_kibana_setup_dashboards: '{{ elastic_beats_kibana_setup_dashboards }}'
 elastic_heartbeat_kibana_enabled: '{{ elastic_beats_kibana_enabled }}'
 elastic_heartbeat_kibana_protocol: '{{ elastic_beats_kibana_protocol }}'
 elastic_heartbeat_kibana_host: '{{ elastic_beats_kibana_host }}'
