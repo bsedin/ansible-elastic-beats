@@ -6,7 +6,6 @@ setup.kibana.protocol: '{{ elastic_heartbeat_kibana_protocol }}'
 setup.kibana.username: '{{ elastic_heartbeat_kibana_basic_auth_username }}'
 setup,kibana.password: '{{ elastic_heartbeat_kibana_basic_auth_password }}'
 setup.kibana.ssl.enabled: '{{ elastic_heartbeat_kibana_protocol == "https" }}'
-setup.dashboards.enabled: {{ elastic_heartbeat_kibana_setup_dashboards }}
 {% endif %}
 
 output.elasticsearch:
