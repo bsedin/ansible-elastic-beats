@@ -13,6 +13,7 @@ output.elasticsearch:
   hosts:
     {{ elastic_filebeat_elasticsearch_hosts | to_yaml | indent(4) }}
   compression_level: {{ elastic_filebeat_compression_level }}
+  index: {{ elastic_filebeat_index }}
 
 xpack.monitoring:
   enabled: true
