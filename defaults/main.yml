@@ -32,6 +32,9 @@ elastic_filebeat_kibana_basic_auth_password: '{{ elastic_beats_kibana_basic_auth
 elastic_filebeat_beat_name: '{{ hostname }}'
 elastic_filebeat_compression_level: 5
 elastic_filebeat_index: filebeat-%{[agent.version]}-%{+yyyy.MM.dd}
+elastic_filebeat_template_enabled: 'true'
+elastic_filebeat_template_name: filebeat
+elastic_filebeat_template_pattern: filebeat-*
 
 elastic_heartbeat_version: '{{ elastic_beats_version }}'
 elastic_heartbeat_dir: /opt/docker/services/elastic-heartbeat
@@ -50,6 +53,9 @@ elastic_heartbeat_beat_name: '{{ hostname }}'
 elastic_heartbeat_compression_level: 5
 elastic_heartbeat_scheduler_limit: 50
 elastic_heartbeat_index: heartbeat-%{[agent.version]}-%{+yyyy.MM.dd}
+elastic_heartbeat_template_enabled: 'true'
+elastic_heartbeat_template_name: heartbeat
+elastic_heartbeat_template_pattern: heartbeat-*
 
 elastic_metricbeat_version: '{{ elastic_beats_version }}'
 elastic_metricbeat_dir: /opt/docker/services/elastic-metricbeat
@@ -72,3 +78,6 @@ elastic_metricbeat_kibana_basic_auth_password: '{{ elastic_beats_kibana_basic_au
 elastic_metricbeat_beat_name: '{{ hostname }}'
 elastic_metricbeat_compression_level: 5
 elastic_metricbeat_index: metricbeat-%{[agent.version]}-%{+yyyy.MM.dd}
+elastic_metricbeat_template_enabled: 'true'
+elastic_metricbeat_template_name: metricbeat
+elastic_metricbeat_template_pattern: metricbeat-*
