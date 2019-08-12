@@ -14,8 +14,11 @@ setup.template.name: '{{ elastic_filebeat_template_name }}'
 setup.template.pattern: '{{ elastic_filebeat_template_pattern }}'
 
 output.elasticsearch:
-  hosts:
-    {{ elastic_filebeat_elasticsearch_hosts | to_yaml | indent(4) }}
+  hosts: {{ elastic_filebeat_elasticsearch_hosts | to_yaml }}
+  {% if elastic_filebeat_elasticsearch_username is defined %}username: {{ elastic_filebeat_elasticsearch_username }}{% endif%}
+
+  {% if elastic_filebeat_elasticsearch_password is defined %}password: {{ elastic_filebeat_elasticsearch_password }}{% endif%}
+
   compression_level: {{ elastic_filebeat_compression_level }}
   index: {{ elastic_filebeat_index }}
 

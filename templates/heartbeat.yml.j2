@@ -13,8 +13,11 @@ setup.template.name: '{{ elastic_heartbeat_template_name }}'
 setup.template.pattern: '{{ elastic_heartbeat_template_pattern }}'
 
 output.elasticsearch:
-  hosts:
-    {{ elastic_heartbeat_elasticsearch_hosts | to_yaml | indent(4) }}
+  hosts: {{ elastic_heartbeat_elasticsearch_hosts | to_yaml }}
+  {% if elastic_heartbeat_elasticsearch_username is defined %}username: {{ elastic_heartbeat_elasticsearch_username }}{% endif%}
+
+  {% if elastic_heartbeat_elasticsearch_password is defined %}password: {{ elastic_heartbeat_elasticsearch_password }}{% endif%}
+
   compression_level: {{ elastic_heartbeat_compression_level }}
   index: {{ elastic_heartbeat_index }}
 
